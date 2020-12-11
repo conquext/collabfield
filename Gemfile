@@ -13,6 +13,7 @@ gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'jquery-rails'
+gem 'bootstrap_form'
 
 # Use devise for authentication
 gem 'devise'
