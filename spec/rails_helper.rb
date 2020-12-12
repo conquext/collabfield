@@ -8,14 +8,6 @@ require File.expand_path('../config/environment', __dir__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
-  require 'capybara/poltergeist'
-  require 'factory_girl_rails'
-  require 'capybara/rspec'
-
-  config.include Devise::Test::IntegrationHelpers, type: :feature
-  config.include FactoryGirl::Syntax::Methods
-  Capybara.javascript_driver = :poltergeist
-  Capybara.server = :puma 
 
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -90,4 +82,17 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  
+require 'capybara/poltergeist'
+require 'factory_girl_rails'
+require 'capybara/rspec'
+
+  #  allows us to use devise methods inside capybaratests
+  config.include Devise::Test::IntegrationHelpers, type: :feature
+  # allows to use factory_girl gem’s methods
+  config.include FactoryGirl::Syntax::Methods
+  Capybara.javascript_driver = :poltergeist
+  Capybara.server = :puma 
+
 end
